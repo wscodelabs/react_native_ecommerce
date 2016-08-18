@@ -23,7 +23,7 @@ export default class CircularButton extends Component {
 
 const style = StyleSheet.create({
   button:{
-    backgroundColor:"blue",
+    backgroundColor:"#42A5F5",
     borderRadius:20,
     alignItems:"center",
     justifyContent:"center"

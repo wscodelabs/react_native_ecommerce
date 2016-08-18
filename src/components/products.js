@@ -4,7 +4,8 @@ import {
   View,
   Image,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  TouchableHighlight
 } from 'react-native'
 import CircularButton from '../common/CircularButton'
 const width = Dimensions.get("window").width
@@ -14,7 +15,8 @@ export default class Products extends Component {
   }
   render(){
     return(
-        <View style={style.card}>
+      <TouchableHighlight onPress={this.props.onPressProduct} style={{height:500}} underlayColor="#F5F5F5">
+        <View  style={style.card}>
           <Image source={{uri:this.props.product.image}} style={style.image}/>
           <View style={style.cardFooter}>
             <View style={style.desc}>
@@ -26,6 +28,7 @@ export default class Products extends Component {
             </View>
           </View>
         </View>
+      </TouchableHighlight>
     )
   }
 }
@@ -39,7 +42,7 @@ const style = StyleSheet.create({
   },
   card:{
     width:(width/2)-35,
-    height:300,
+    height:500,
     marginLeft:15,
     marginRight:15,
     marginTop:15,
