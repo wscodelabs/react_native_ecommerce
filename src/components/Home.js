@@ -109,12 +109,9 @@ const styles = StyleSheet.create({
   scrollView: {
     flex:1
   },
-  horizontalScrollView: {
-    height: 120,
-  },
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
   toolbarContainer: {
     flex:1,
@@ -128,17 +125,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#F5F5F5'
   },
   InsideScroll: {
-    flexWrap:"wrap",
-    flexDirection:"row"
-  },
-  image: {
     flex:1,
-    paddingTop:20,
-    alignItems:"center",
-    justifyContent:"center"
-  },
-  toolBarText:{
-    flex:10,
+    justifyContent:"space-between",
     alignItems:"center"
   }
 });

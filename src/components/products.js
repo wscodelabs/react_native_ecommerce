@@ -15,9 +15,11 @@ export default class Products extends Component {
   }
   render(){
     return(
-      <TouchableHighlight onPress={this.props.onPressProduct} style={{height:500}} underlayColor="#F5F5F5">
-        <View  style={style.card}>
-          <Image source={{uri:this.props.product.image}} style={style.image}/>
+      <TouchableHighlight onPress={this.props.onPressProduct} style={style.card} underlayColor="#F5F5F5">
+        <View style={style.card}>
+          <View style={style.imageContainer}>
+            <Image source={{uri:this.props.product.image}} style={style.image}/>
+          </View>
           <View style={style.cardFooter}>
             <View style={style.desc}>
               <Text style={style.ProductName}>{this.props.product.name}</Text>
@@ -35,42 +37,40 @@ export default class Products extends Component {
 
 const style = StyleSheet.create({
   image:{
-    flex:7,
-    width:(width/2)-40,
-    alignSelf:'center',
-    padding:50
+    width:width-10,
+    height:600,
+    alignSelf:'center'
+  },
+  imageContainer: {
+    height:600
   },
   card:{
-    width:(width/2)-35,
-    height:500,
-    marginLeft:15,
-    marginRight:15,
-    marginTop:15,
-    backgroundColor:"white"
+    flex:1,
+    alignSelf:"center",
+    backgroundColor:"white",
+    marginTop:20
   },
   ProductName:{
-    fontSize:22,
+    fontSize:17,
     fontWeight:"bold"
   },
   ProductPrice:{
-    fontSize:15,
+    fontSize:14,
     fontWeight:"bold"
   },
   cardFooter:{
-    flex:3,
+    flex:5,
     flexDirection:"row",
-    alignItems:'flex-start',
-    justifyContent:'flex-start',
-    padding:15,
+    alignItems:'center',
+    justifyContent:'center',
     borderColor:"black",
-    borderTopWidth:1
+    borderTopWidth:1,
+    height:100
   },
   desc:{
-    flex:3
+    flex:4,
   },
   descButton:{
     flex:2,
-    marginRight:10,
-    marginTop:15
   }
 })
