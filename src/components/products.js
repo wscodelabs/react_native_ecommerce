@@ -5,52 +5,55 @@ import {
   Image,
   StyleSheet,
   Dimensions,
-  TouchableHighlight
+  Touchable
 } from 'react-native'
-import CircularButton from '../common/CircularButton'
-const width = Dimensions.get("window").width
-const height = Dimensions.get("window").height
+
+import {
+  Row,
+  Col,
+  Grid,
+  Button,
+  Card,
+  CardItem
+} from 'native-base'
+
 export default class Products extends Component {
   constructor(props){
     super(props)
   }
+  setNativeProps(nativeProps) {
+    this._root.setNativeProps(nativeProps);
+  }
   render(){
     return(
-      <TouchableHighlight onPress={this.props.onPressProduct} style={style.card} underlayColor="#F5F5F5">
-        <View style={style.card}>
-          <View style={style.imageContainer}>
-            <Image source={{uri:this.props.product.image}} style={style.image}/>
-          </View>
-          <View style={style.cardFooter}>
-            <View style={style.desc}>
-              <Text style={style.ProductName}>{this.props.product.name}</Text>
-              <Text style={style.ProductPrice}>{this.props.product.price}</Text>
-            </View>
-            <View style={style.descButton}>
-              <CircularButton text="+ Add" />
-            </View>
-          </View>
+      <View style={{flex:1}} ref={component => this._root = component}>
+        <Grid style={{flex:1}}>
+          <Row style={{flex:5,justifyContent:"space-between",alignItems:"center"}}>
+          <Card style={{flex:1}}>
+            <CardItem style={{flex:5,alignItems:"center",justifyContent:"space-around"}}>
+              <Image style={{ resizeMode: 'cover',flex:1,alignSelf:"center"}} source={require("../images/shoes.png")} />
+            </CardItem>
+
+            <CardItem style={{flex:1}}>
+              <Grid>
+                <Col style={{flex:2,justifyContent:"center",alignItems:"flex-start"}}>
+                  <Text style={{fontWeight:"bold"}}>{this.props.product.name}</Text>
+                  <Text style={{fontWeight:"bold"}}>$99</Text>
+                </Col>
+                <Col style={{flex:1,justifyContent:"center",alignItems:"flex-start"}}>
+                  <Button rounded primary>+ Add</Button>
+                </Col>
+              </Grid>
+            </CardItem>
+          </Card>
+          </Row>
+        </Grid>
         </View>
-      </TouchableHighlight>
     )
   }
 }
 
 const style = StyleSheet.create({
-  image:{
-    width:width-10,
-    height:(height/2)+50,
-    alignSelf:'center'
-  },
-  imageContainer: {
-    height:(height/2)+50
-  },
-  card:{
-    flex:1,
-    alignSelf:"center",
-    backgroundColor:"white",
-    marginTop:20
-  },
   ProductName:{
     fontSize:17,
     fontWeight:"bold"

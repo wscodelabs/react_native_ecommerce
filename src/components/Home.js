@@ -10,6 +10,17 @@ import {
   TouchableHighlight,
 } from 'react-native'
 
+import {
+  Container,
+  Header,
+  Content,
+  Title,
+  Icon,
+  Button,
+  Grid,
+  Row
+} from 'native-base'
+
 import ProductItem from './products'
 import NavBar from './NavBar'
 const products = [
@@ -72,24 +83,31 @@ export default class Home extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
-        <NavBar leftIcon="bars" rightIcon="shopping-cart" onPressLeftIcon={this.onPressMenu} onPressRightIcon={this.onPressCart} navbarText="Activity"/>
-        <View style={styles.AdContainer}>
-        <ScrollView
-          ref={(scrollView) => { _scrollView = scrollView; }}
-          automaticallyAdjustContentInsets={false}
-          style={styles.scrollView}>
-          <View style={styles.InsideScroll}>
-            {this.listAllImages()}
-          </View>
-        </ScrollView>
-        </View>
-      </View>
+      <Container>
+      <Header>
+        <Button transparent onPress={this._navigate.bind(this)}>
+          <Icon name="ios-menu"/>
+        </Button>
+        <Title>Activities</Title>
+        <Button transparent>
+          <Icon name="ios-cart"/>
+        </Button>
+      </Header>
+      <Content>
+        <Grid style={{flex:1}}>
+          {this.listAllImages()}
+        </Grid>
+      </Content>
+      </Container>
     );
   }
   listAllImages(){
     return products.map((product)=>{
-      return <ProductItem key={product.name} product={product} onPressProduct={this._navigate.bind(this)}/>
+      return <Row style={{flex:1,paddingBottom:20}} key={product.name}>
+              <TouchableHighlight onPress={this._navigate.bind(this)} style={{flex:1}}>
+              <ProductItem product={product} onPressProduct={this._navigate.bind(this)}/>
+              </TouchableHighlight>
+              </Row>
     })
   }
   onPressMenu(){
