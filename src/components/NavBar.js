@@ -11,14 +11,14 @@ export default class NavBar extends Component {
   render(){
     return(
       <View style={styles.toolbarContainer}>
-        <TouchableHighlight onPress={this.props.onPressMenu} style={styles.image}>
-          <Icon name="bars" color="white" style={styles.icon}/>
+        <TouchableHighlight onPress={this.props.onPressLeftIcon} style={styles.image}>
+          <Icon name={this.props.leftIcon} color="white" style={styles.icon}/>
         </TouchableHighlight>
         <View style={styles.toolBarText}>
           <ToolBarText text={this.props.navbarText}/>
         </View>
-        <TouchableHighlight onPress={this.props.onPressCart} style={styles.image}>
-          <Icon name="shopping-cart" color="white" style={styles.icon}/>
+        <TouchableHighlight onPress={this.props.onPressRightIcon} style={styles.image}>
+          <Icon name={this.props.rightIcon} color="white" style={styles.icon}/>
         </TouchableHighlight>
       </View>
     )

@@ -73,7 +73,7 @@ export default class Home extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <NavBar onPressMenu={this.onPressMenu} onPressCart={this.onPressCart} navbarText="Activity"/>
+        <NavBar leftIcon="bars" rightIcon="shopping-cart" onPressLeftIcon={this.onPressMenu} onPressRightIcon={this.onPressCart} navbarText="Activity"/>
         <View style={styles.AdContainer}>
         <ScrollView
           ref={(scrollView) => { _scrollView = scrollView; }}

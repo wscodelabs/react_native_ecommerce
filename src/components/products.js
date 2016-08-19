@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import CircularButton from '../common/CircularButton'
 const width = Dimensions.get("window").width
+const height = Dimensions.get("window").height
 export default class Products extends Component {
   constructor(props){
     super(props)
@@ -38,11 +39,11 @@ export default class Products extends Component {
 const style = StyleSheet.create({
   image:{
     width:width-10,
-    height:600,
+    height:(height/2)+50,
     alignSelf:'center'
   },
   imageContainer: {
-    height:600
+    height:(height/2)+50
   },
   card:{
     flex:1,
